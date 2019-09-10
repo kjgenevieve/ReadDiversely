@@ -10,6 +10,55 @@
   </head>
 
   <body>
+
+    <h3>Read Diversely</h3>
+    
+    
+    <table style="width:15%">
+      <tr>
+        <th>Index</th>
+        <th>New</th>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to "Home", '/' %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to "Authors", authors_path(@authors) %>
+        </td>
+        <td>
+          <%= link_to "New", new_author_path(@authors) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to "Books", books_path(@books) %>
+        </td>
+        <td>
+          <%= link_to "New", new_book_path(@books) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to "Reader's Books", reader_books_path(@reader_books) %>
+        </td>
+        <td>
+          <%= link_to "New", new_reader_book_path(@reader_books) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to "Readers", readers_path(@readers) %>
+        </td>
+        <td>
+          <%= link_to "New", new_reader_path(@readers) %>
+        </td>
+      </tr>
+    </table>
+
     <%= yield %>
+    
   </body>
 </html>
