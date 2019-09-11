@@ -1,1 +1,9 @@
-Author Index
+</br></br><h3>Author Index</h3>
+
+<ul>
+    <% @authors.each do |author| %>
+        <li>
+            <%= link_to "#{author.last_name}, #{author.first_name}", author_path(author.id) %>
+        </li>
+    <% end %>
+</ul>

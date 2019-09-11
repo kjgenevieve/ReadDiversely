@@ -1,1 +1,5 @@
-Book Show
+</br></br><h1><%= @book.title %></h1></br></br>
+
+<h2>Information</h2>
+    <p>Author: <%= link_to "#{@book.author.name}", author_path(@book.author.id) %>
+</br>

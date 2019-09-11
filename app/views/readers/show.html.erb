@@ -1,1 +1,23 @@
-Reader Show
+</br></br><h1><%= @reader.name %></h1>
+
+<h2>Diversity Statistics</h2>
+for attribute in @tallies
+
+<h4>Gender</h4>
+<ul>
+    <li>Female: 66%</li>
+    <li>Male: 34%</li>
+</ul>
+
+<h4>sexual_orientation</h4>
+<ul>
+    <li>Gay: 66%</li>
+    <li>Bi: 34%</li>
+    <li>Incel: 34%</li>
+    <li>Asexual: 12%</li>
+</ul>
+
+<h2>Books</h2>
+<% @reader.books.alphabetical.each do |book| %>
+    <%= link_to book.title, book_path(book.id) %> by <%= link_to book.author.name, author_path(book.author.id) %> </br>
+<% end %>

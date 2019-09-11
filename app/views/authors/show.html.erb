@@ -1,1 +1,19 @@
-Author Show
+</br></br><h1><%= @author.name %></h1></br></br>
+
+<h2>Information</h2>
+    <p>Gender: <%= @author.gender %></p>
+    <p>Sexual Orientation: <%= @author.sexual_orientation %></p>
+    <p>Race: <%= @author.race %></p>
+    <p>Nationality: <%= @author.nationality %></p>
+
+</br>
+
+<h2>Books</h2>
+
+    <% @author.alpha_books.each do |book| %>
+        <ul>
+            <li>
+                <%= link_to book.title, book_path(book.id) %>
+            </li>
+        </ul>
+    <% end %>
