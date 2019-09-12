@@ -1,6 +1,9 @@
 </br></br><h1><%= @author.name %></h1></br></br>
 
 <h2>Information</h2>
+<h4>See something wrong? <%= link_to "Edit it here.", edit_author_path(@author.id) %></h4>
+
+
     <p>Gender: <%= @author.gender %></p>
     <p>Sexual Orientation: <%= @author.sexual_orientation %></p>
     <p>Race: <%= @author.race %></p>
@@ -17,3 +20,6 @@
             </li>
         </ul>
     <% end %>
+
+    
+    <h4><%= link_to "Add a book", new_book_path %></h4>

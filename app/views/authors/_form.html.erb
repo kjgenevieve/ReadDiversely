@@ -1,0 +1,32 @@
+<% if @author.errors.any? %>
+    <div id="error_explanation">
+        <h2>Errors:</h2>
+        <ul>
+            <% @author.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for @author do |f| %>
+<label>Last Name:</label><br>
+    <%= f.text_field :last_name %><br>
+ 
+<label>First Name:</label><br>
+    <%= f.text_field :first_name %><br>
+
+<label>Gender:</label><br>
+    <%= f.text_field :gender %><br>
+
+<label>Sexual Orientation:</label><br>
+    <%= f.text_field :sexual_orientation %><br>
+
+<label>Race:</label><br>
+    <%= f.text_field :race %><br>
+
+<label>Nationality:</label><br>
+    <%= f.text_field :nationality %><br>
+
+<%= submit_tag "Submit" %>
+<% end %>

@@ -1,64 +1,56 @@
+
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReadDiversely</title>
+    <title>Read Diversely</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+    
   </head>
-
   <body>
+    <ul class="h">
+      <li class="h"><%= link_to "Read Diversely", '/' %></li>
 
-    <h3>Read Diversely</h3>
-    
-    
-    <table style="width:15%">
-      <tr>
-        <th>Index</th>
-        <th>New</th>
-      </tr>
-      <tr>
-        <td>
-          <%= link_to "Home", '/' %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= link_to "Authors", authors_path(@authors) %>
-        </td>
-        <td>
-          <%= link_to "New", new_author_path(@authors) %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= link_to "Books", books_path(@books) %>
-        </td>
-        <td>
-          <%= link_to "New", new_book_path(@books) %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= link_to "Reader's Books", reader_books_path(@reader_books) %>
-        </td>
-        <td>
-          <%= link_to "New", new_reader_book_path(@reader_books) %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= link_to "Readers", readers_path(@readers) %>
-        </td>
-        <td>
-          <%= link_to "New", new_reader_path(@readers) %>
-        </td>
-      </tr>
-    </table>
+      <li class ="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Authors</a>
+        <div class="dropdown-content">
+          <%= link_to "View All", authors_path(@authors) %>
+          <%= link_to "Create New", new_author_path(@authors) %>
+        </div>
+      </li>
 
-    <%= yield %>
-    
+      <li class ="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Books</a>
+        <div class="dropdown-content">
+          <%= link_to "View All", books_path(@books) %>
+          <%= link_to "Create New", new_book_path(@books) %>
+        </div>
+      </li>
+
+      <li class ="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Readers</a>
+        <div class="dropdown-content">
+          <%= link_to "View All", readers_path(@readers) %>
+          <%= link_to "Create New", new_reader_path(@readers) %>
+        </div>
+      </li>
+
+    </ul>
+
+
+
+
+
+
+
+
+    <%= yield %>  
   </body>
 </html>

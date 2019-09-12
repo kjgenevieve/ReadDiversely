@@ -13,3 +13,70 @@
  *= require_tree .
  *= require_self
  */
+
+.header {
+    padding: 20px;
+    text-align: left;
+    background: #A26769;
+    color: 54494B;
+}
+
+
+body {
+    background-color: #F7C6C3;
+  }
+
+
+ul.h {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #A26769;
+}
+
+li.h {
+  float: left;
+}
+
+li.h a, .dropbtn {
+  display: inline-block;
+  color: #54494B;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.h a:hover, .dropdown:hover .dropbtn {
+  background-color: #775253;
+  color: linen;
+}
+
+li.dropdown {
+  float: right;
+  display: inline-block;
+}
+
+.dropdown-content {
+  
+  display: none;
+  position: absolute;
+  background-color: linen;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #54494B;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #8E8C6F;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

@@ -1,21 +1,50 @@
 </br></br><h1><%= @reader.name %></h1>
+<h4>See something wrong? <%= link_to "Edit it here.", edit_reader_path(@reader.id) %></h4>
+
 
 <h2>Diversity Statistics</h2>
-for attribute in @tallies
 
 <h4>Gender</h4>
 <ul>
-    <li>Female: 66%</li>
-    <li>Male: 34%</li>
+    <% @reader.reader_diversity[:gender].each do |gender| %>
+        <li>
+            <b><%= gender[0] %></b>: <%= number_to_percentage((gender[1] * 100 / @reader.authors.count), precision: 2) %>
+        </li>
+    <% end %>
 </ul>
 
-<h4>sexual_orientation</h4>
+<h4>Sexual Orientation</h4>
 <ul>
-    <li>Gay: 66%</li>
-    <li>Bi: 34%</li>
-    <li>Incel: 34%</li>
-    <li>Asexual: 12%</li>
+    <% @reader.reader_diversity[:sexual_orientation].each do |so| %>
+        <li>
+            <b><%= so[0] %></b>: <%= number_to_percentage((so[1] * 100 / @reader.authors.count), precision: 2) %>
+        </li>
+    <% end %>
 </ul>
+
+<h4>Race</h4>
+<ul>
+    <% @reader.reader_diversity[:race].each do |race| %>
+        <li>
+            <b><%= race[0] %></b>: <%= number_to_percentage((race[1] * 100 / @reader.authors.count), precision: 2) %>
+        </li>
+    <% end %>
+</ul>
+
+<h4>Nationality</h4>
+<ul>
+    <% @reader.reader_diversity[:nationality].each do |nationality| %>
+        <li>
+            <b><%= nationality[0] %></b>: <%= number_to_percentage((nationality[1] * 100 / @reader.authors.count), precision: 2) %>
+        </li>
+    <% end %>
+</ul>
+
+
+
+
+
+
 
 <h2>Books</h2>
 <% @reader.books.alphabetical.each do |book| %>

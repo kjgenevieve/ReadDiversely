@@ -25,7 +25,6 @@ class Book < ApplicationRecord
             end
         end
     end
-
     
     def self.alphabetical
         Book.article_shift.sort_by do |book|

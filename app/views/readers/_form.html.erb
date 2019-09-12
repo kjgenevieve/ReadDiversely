@@ -1,0 +1,17 @@
+<% if @reader.errors.any? %>
+    <div id="error_explanation">
+        <h2>Errors:</h2>
+        <ul>
+            <% @reader.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for @reader do |f| %>
+<label>Name:</label><br>
+    <%= f.text_field :name %><br>
+
+<%= submit_tag "Submit" %>
+<% end %>

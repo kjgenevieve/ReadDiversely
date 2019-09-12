@@ -19,34 +19,62 @@ class Reader < ApplicationRecord
         end
     end
 
-    # for each author.attributes.keys
-    #     find all instances of key
-    #     find uniq key
+    def reader_diversity
+        div_hash = Author.diversity_hash
+        
+        ### Update Gender Values ###
+        gender_ary = self.authors.map do |author|
+            author.gender
+        end
 
-    # for each uniq key, do 
-    #     uniq key.count / all_key.count
+        gender_ary.each do |gender|
+            if div_hash[:gender].keys.include? gender
+                div_hash[:gender][gender] += 1
+            else
+                    puts "There's been an error in the reader_diversity method in reader.rb."
+            end
+        end
+
+        ### Update SO Values ###
+        so_ary = self.authors.map do |author|
+            author.sexual_orientation
+        end
+
+        so_ary.each do |so|
+            if div_hash[:sexual_orientation].keys.include? so
+                div_hash[:sexual_orientation][so] += 1
+            else
+                    puts "There's been an error in the reader_diversity method in reader.rb."
+            end
+        end
+
+        ### Update Race Values ###
+        race_ary = self.authors.map do |author|
+            author.race
+        end
+
+        race_ary.each do |race|
+            if div_hash[:race].keys.include? race
+                div_hash[:race][race] += 1
+            else
+                    puts "There's been an error in the reader_diversity method in reader.rb."
+            end
+        end
+
+        ### Update Nationality Values ###
+        nation_ary = self.authors.map do |author|
+            author.nationality
+        end
+
+        nation_ary.each do |nation|
+            if div_hash[:nationality].keys.include? nation
+                div_hash[:nationality][nation] += 1
+            else
+                    puts "There's been an error in the reader_diversity method in reader.rb."
+            end
+        end
     
-    # def tally_attributes
-    #     tallies = Hash.new
-    #     author.attributes.keys
-    #         tallies[attribute] = tally(attribute)
-    #     end
-    #     return tallies
-    # end
-
-    # def tally(attribute)
-    #     tally_ = Hash.new
-    #     @user.authors.each do |author|
-    #         # has the tally seen this before?
-    #         # make a new entry with 1
-    #         # otherwise increment
-    #     end
-    #     tally_
-    # end
-    # gender
-    # sexual_orientation
-    # race
-    # nationality
-
+        return div_hash
+    end
 
 end
