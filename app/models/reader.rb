@@ -3,7 +3,7 @@ class Reader < ApplicationRecord
     has_many :books, through: :reader_books
 
     validates :name, presence: true, uniqueness: true, length: {in: 2..15}, :format => { :with => /\A(?=.*[a-z])[a-z\d]+\Z/i }
-
+    has_secure_password
 
     def self.alphabetical
         Reader.all.sort_by { |reader| reader.name }

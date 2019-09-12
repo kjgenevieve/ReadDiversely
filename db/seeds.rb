@@ -26,11 +26,11 @@ b12 = Book.create(title: "Song of Solomon", author_id: (Author.find_by(last_name
 b13 = Book.create(title: "Sula", author_id: (Author.find_by(last_name: "Morrison").id))
 
 ### Readers ###
-r1 = Reader.create(name: "Genevieve")
-r2 = Reader.create(name: "Grace")
-r3 = Reader.create(name: "Catherine")
-r4 = Reader.create(name: "Jaime")
-r5 = Reader.create(name: "Leslie")
+r1 = Reader.create(name: "Genevieve", password: "password1234")
+r2 = Reader.create(name: "Grace", password: "hello9283")
+r3 = Reader.create(name: "Catherine", password: "byebyebaby09")
+r4 = Reader.create(name: "Jaime", password: "californiadr3am1n")
+r5 = Reader.create(name: "Leslie", password: "boopydoopy31")
 
 ### ReaderBooks ###
 rb1 = ReaderBook.create(reader_id: (Reader.find_by(name: "Genevieve")).id, book_id: (Book.find_by(title: "No Country for Old Men").id))

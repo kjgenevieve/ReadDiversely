@@ -1,13 +1,17 @@
 class SessionsController < ApplicationController
     def new
+        if params[:name]
+            @reader = Reader.find_by(name: params[:name])
+        end
     end
     
     def create
-        
         if !params[:name].empty? || params[:name]
             if @reader = Reader.find_by(name: params[:name])
-                session[:id] = @reader.id
-                redirect_to reader_path(@reader.id)
+                if @reader.authenticate(params[:password])
+                    session[:id] = @reader.id
+                    redirect_to reader_path(@reader.id)
+                end
             else
                 render :new
             end
@@ -21,4 +25,3 @@ class SessionsController < ApplicationController
         redirect_to readers_path
     end
 end
-    
