@@ -1,4 +1,6 @@
 class ReadersController < ApplicationController
+    before_action :require_logged_in, only: [:edit, :update]
+
     def index
         @readers = Reader.alphabetical
     end
