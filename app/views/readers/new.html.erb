@@ -1,17 +1,14 @@
-<h1>Create a Reader Account</h1>
-
-<%=# form_for @reader do |f| %>
-    <%=# render 'form' %>
-<% #end %>
-
-
-<%= form_for @reader do |f| %>
-  <label> Name: </label>
-    <%= f.text_field :name %></br>
-  <label> Password: </label>
-    <%= f.text_field :password %></br>
-  <label> Password Confirmation: </label>
-    <%= f.text_field :password, confirmation: true %><br></b>
-  
-  <%= f.submit "Submit" %>
-<% end %>
+<body>
+  <div class="page_padding">  
+    <h1>Create a Reader Account</h1>
+      <%= form_for @reader do |f| %>
+        <label> Name: </label>
+          <%= f.text_field :name %></br>
+        <label> Password: </label>
+          <%= f.password_field :password_digest %></br>
+        <label> Password Confirmation: </label>
+          <%= f.password_field :password_digest, confirmation: true %><br></b>
+        <%= f.submit "Submit", class: 'submit_button' %>
+      <% end %>
+  </div>
+</body>

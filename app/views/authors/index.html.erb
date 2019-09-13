@@ -1,9 +1,12 @@
-</br></br><h3>Author Index</h3>
-
-<ul>
-    <% @authors.each do |author| %>
-        <li>
-            <%= link_to "#{author.last_name}, #{author.first_name}", author_path(author.id) %>
-        </li>
-    <% end %>
-</ul>
+<body>
+    <div class="page_padding">
+        <h1>Author Index</h1>
+            <ul>
+                <% @authors.each do |author| %>
+                    <li>
+                        <%= link_to "#{author.last_name}, #{author.first_name}", author_path(author.id) %>
+                    </li>
+                <% end %>
+            </ul>
+    </div>
+</body>

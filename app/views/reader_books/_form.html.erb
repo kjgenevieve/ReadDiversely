@@ -1,0 +1,37 @@
+<% if @reader_book.errors.any? %>
+    <div id="error_explanation">
+        <h2>Errors:</h2>
+        <ul>
+            <% @reader_book.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for @reader_book do |f| %>
+     <%= f.hidden_field :reader_id, :value => @reader_id %>
+            
+    <div>
+        Book: <select name="book_id">
+            <% Book.all.each do |book| %>
+                <% if @reader_book.book_id == book.id %>
+                    <option selected value="<%= book.id %>">
+                        <%= book.title %>
+                    </option>
+                <% else %>
+                    <option value="<%= book.id %>">
+                        <%= book.title %>
+                    </option>
+                <% end %>
+            <% end %>
+        </select>
+    </div>
+
+    <%= submit_tag "Submit", class: 'submit_button' %>
+    
+<% end %>
+
+
+
+

@@ -1,57 +1,90 @@
-<%= link_to "Log Out", session_path(@reader.id), method: :delete, :data => { :confirm => "Good bye; you are logged out." } %>
+<body>
+<div class="page_padding">
+<div class="container">
+    <div class="top">
+            <h1><%= @reader.name %></h1>
+                <div class="edit"><%= link_to "Edit", edit_reader_path(@reader.id) %></div>
 
+            <h2>Diversity Statistics</h2>
+                <% if @reader.books.empty? %>
+                    <p>You don't have any statistics yet!</p>
+                <% else %>
+    </div>
+                
+        
+    <div class="gender">
+        <div class="card">
+            <div class="card-container">
+                
+                <h3>Gender</h3>
+                    <ul>
+                        <% @reader.reader_diversity[:gender].each do |gender| %>
+                            <li><b><%= gender[0] %>: </b><%= number_to_percentage((gender[1] * 100 / @reader.authors.count), precision: 2) %></li>
+                        <% end %>
+                    </ul>
+            
+            </div>
+        </div>
+    </div>    
 
+    <div class="so">
+        <div class="card">
+            <div class="card-container">
 
+                <h3>Sexual Orientation</h3>
+                    <ul>
+                        <% @reader.reader_diversity[:sexual_orientation].each do |so| %>
+                            <li><b><%= so[0] %>: </b><%= number_to_percentage((so[1] * 100 / @reader.authors.count), precision: 2) %></li>
+                        <% end %>
+                    </ul>
 
-</br></br><h1><%= @reader.name %></h1>
-<h4>See something wrong? <%= link_to "Edit it here.", edit_reader_path(@reader.id) %></h4>
+            </div>
+        </div>
+    </div>
 
+    <div class="race">
+        <div class="card">
+            <div class="card-container">
 
-<h2>Diversity Statistics</h2>
+                <h3>Race</h3>
+                    <ul>
+                        <% @reader.reader_diversity[:race].each do |race| %><li>
+                                <b><%= race[0] %>: </b><%= number_to_percentage((race[1] * 100 / @reader.authors.count), precision: 2) %></li>
+                        <% end %>
+                    </ul>
 
-<h4>Gender</h4>
-<ul>
-    <% @reader.reader_diversity[:gender].each do |gender| %>
-        <li>
-            <b><%= gender[0] %></b>: <%= number_to_percentage((gender[1] * 100 / @reader.authors.count), precision: 2) %>
-        </li>
-    <% end %>
-</ul>
+            </div>
+        </div>
+    </div>
+        
+    <div class="nationality">
+        <div class="card">
+            <div class="card-container">
+                
+                <h3>Nationality</h3>
+                    <ul>
+                        <% @reader.reader_diversity[:nationality].each do |nationality| %><li>
+                                <b><%= nationality[0] %>: </b><%= number_to_percentage((nationality[1] * 100 / @reader.authors.count), precision: 2) %></li>
+                        <% end %>
+                    </ul>
 
-<h4>Sexual Orientation</h4>
-<ul>
-    <% @reader.reader_diversity[:sexual_orientation].each do |so| %>
-        <li>
-            <b><%= so[0] %></b>: <%= number_to_percentage((so[1] * 100 / @reader.authors.count), precision: 2) %>
-        </li>
-    <% end %>
-</ul>
+            </div>
+        </div>
+    </div>
 
-<h4>Race</h4>
-<ul>
-    <% @reader.reader_diversity[:race].each do |race| %>
-        <li>
-            <b><%= race[0] %></b>: <%= number_to_percentage((race[1] * 100 / @reader.authors.count), precision: 2) %>
-        </li>
-    <% end %>
-</ul>
+    <div class="bottom">
+        <h2>Books</h2>
+            <div class="edit"><%= link_to "Add a Book", new_reader_book_path %></div>
+            
+            <ul>
+                <% @reader.books.alphabetical.each do |book| %>
+                    <li><%= link_to book.title, book_path(book.id) %> by <%= link_to book.author.name, author_path(book.author.id) %></li>
+                <% end %>
+            </ul>
+    
+    </div>
 
-<h4>Nationality</h4>
-<ul>
-    <% @reader.reader_diversity[:nationality].each do |nationality| %>
-        <li>
-            <b><%= nationality[0] %></b>: <%= number_to_percentage((nationality[1] * 100 / @reader.authors.count), precision: 2) %>
-        </li>
-    <% end %>
-</ul>
-
-
-
-
-
-
-
-<h2>Books</h2>
-<% @reader.books.alphabetical.each do |book| %>
-    <%= link_to book.title, book_path(book.id) %> by <%= link_to book.author.name, author_path(book.author.id) %> </br>
-<% end %>
+                <% end %>
+</div>
+</div>
+</body>

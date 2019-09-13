@@ -1,9 +1,12 @@
-</br></br><h3>Reader Index</h3>
-
-<ul>
-    <% @readers.each do |reader| %>
-        <li>
-            <%= link_to "#{reader.name}", reader_path(reader.id) %>
-        </li>
-    <% end %>
-</ul>
+<body>
+    <div class="page_padding">    
+        <h1>Reader Index</h1>
+            <ul>
+                <% @readers.each do |reader| %>
+                    <li>
+                        <%= link_to "#{reader.name}", reader_path(reader.id) %>
+                    </li>
+                <% end %>
+            </ul>
+    </div>
+</body>

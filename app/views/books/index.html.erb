@@ -1,9 +1,12 @@
-Book Index
-
-<ul>
-    <% @books.each do |book| %>
-        <li>
-            <%= link_to "#{book.title}", book_path(book.id) %>
-        </li>
-    <% end %>
-</ul>
+<body>
+    <div class="page_padding">
+        <h1>Browse Books</h1>
+            <ul>
+                <% @books.each do |book| %>
+                    <li>
+                        <%= link_to "#{book.title}", book_path(book.id) %>
+                    </li>
+                <% end %>
+            </ul>
+    </div>
+</body>

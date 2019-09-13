@@ -1,7 +1,9 @@
-</br></br><h1><%= @book.title %></h1></br></br>
+<body>
+    <div class="page_padding">
+        <h1><%= @book.title %></h1>
+            <h2>Information</h2>
+                <div class="edit"><%= link_to "Edit", edit_book_path(@book.id) %></div>
 
-<h2>Information</h2>
-<h4>See something wrong? <%= link_to "Edit it here.", edit_book_path(@book.id) %></h4>
-
-    <p>Author: <%= link_to "#{@book.author.name}", author_path(@book.author.id) %>
-</br>
+            <p>Author: <%= link_to "#{@book.author.name}", author_path(@book.author.id) %>
+    </div>
+</body>

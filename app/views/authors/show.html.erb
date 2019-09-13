@@ -1,25 +1,32 @@
-</br></br><h1><%= @author.name %></h1></br></br>
+<body>
+    <div class="page_padding">
+        <h1><%= @author.name %></h1>
+            <h2>Information</h2>
+                <div class="edit"><%= link_to "Edit", edit_author_path(@author.id) %></div>
+                    <ul>
+                        <li>
+                            <b>Gender: </b><%= @author.gender %>
+                        </li>
+                        <li>
+                            <b>Sexual Orientation: </b><%= @author.sexual_orientation %>
+                        </li>
+                        <li>
+                            <b>Race: </b><%= @author.race %>
+                        </li>
+                        <li>
+                            <b>Nationality: </b><%= @author.nationality %>
+                        </li>
+                    </ul>
 
-<h2>Information</h2>
-<h4>See something wrong? <%= link_to "Edit it here.", edit_author_path(@author.id) %></h4>
+            <h2>Books</h2>
+                <div class="edit"><%= link_to "Add a book", new_book_path %></div>
 
-
-    <p>Gender: <%= @author.gender %></p>
-    <p>Sexual Orientation: <%= @author.sexual_orientation %></p>
-    <p>Race: <%= @author.race %></p>
-    <p>Nationality: <%= @author.nationality %></p>
-
-</br>
-
-<h2>Books</h2>
-
-    <% @author.alpha_books.each do |book| %>
-        <ul>
-            <li>
-                <%= link_to book.title, book_path(book.id) %>
-            </li>
-        </ul>
-    <% end %>
-
-    
-    <h4><%= link_to "Add a book", new_book_path %></h4>
+                <ul>
+                    <% @author.alpha_books.each do |book| %>
+                        <li>
+                            <%= link_to book.title, book_path(book.id) %>
+                        </li>
+                    <% end %>
+                </ul>
+    </div>
+</body>

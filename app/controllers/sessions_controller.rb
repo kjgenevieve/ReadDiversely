@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
     end
     
     def create
-        if !params[:name].empty? || params[:name]
-            if @reader = Reader.find_by(name: params[:name])
-                if @reader.authenticate(params[:password])
+        if !params[:session][:name].empty? || params[:session][:name]
+            if @reader = Reader.find_by(name: params[:session][:name])
+                if @reader.authenticate(params[:session][:password])
                     session[:id] = @reader.id
                     redirect_to reader_path(@reader.id)
                 end

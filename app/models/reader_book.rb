@@ -2,6 +2,9 @@ class ReaderBook < ApplicationRecord
     belongs_to :reader
     belongs_to :book
 
+    validates :reader_id, :book_id, presence: true
+
+
     def article_shift
         books = self.all
         books.each do |book|

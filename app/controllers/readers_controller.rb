@@ -44,6 +44,6 @@ class ReadersController < ApplicationController
 
     private
     def reader_params
-        params.require(:reader).permit(:name)
+        params.require(:reader).permit(:name, :password, :password_digest)
     end
 end
